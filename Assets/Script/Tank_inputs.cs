@@ -21,7 +21,17 @@ namespace TankDemo
         {
             get { return reticleNormal;  }
         }
-        // Update is called once per frame
+        private float forwardInput;
+        public float ForwardInput
+        {
+            get { return forwardInput;  }
+        }
+        private float rotationInput;
+        public float RotationInput
+        {
+            get { return rotationInput;  }
+        }
+            // Update is called once per frame
         void Update()
         {
             if (camera)
@@ -46,6 +56,8 @@ namespace TankDemo
                 reticlePositon = hit.point;
                 reticleNormal = hit.normal;
             }
+            forwardInput = Input.GetAxis("Vertical");
+            rotationInput = Input.GetAxis("Horizontal");
         }
     }
 }
